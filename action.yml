@@ -1,11 +1,21 @@
 # https://docs.github.com/en/actions/creating-actions/creating-a-composite-run-steps-action
 name: Setup Node and pnpm
+inputs:
+  node-version:
+    required: true
+    default: 14
+  pnpm-version:
+    required: true
+    default: 6.0.2
+  run-install:
+    required: true
+    default: true
 runs:
   using: composite
   steps:
     - uses: actions/setup-node@v2
       with:
-        node-version: '14'
+        node-version: ${{ inputs.node-version }}
 
     # https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
     - name: Cache pnpm modules
@@ -18,5 +28,5 @@ runs:
 
     - uses: pnpm/action-setup@v2.0.1
       with:
-        version: 6.0.2
-        run_install: true
+        version: ${{ inputs.pnpm-version }}
+        run_install: ${{ inputs.run-install }}
