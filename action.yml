@@ -1,5 +1,5 @@
 # https://docs.github.com/en/actions/creating-actions/creating-a-composite-run-steps-action
-name: Setup pnpm
+name: Setup Node and pnpm
 runs:
   using: composite
   steps:
