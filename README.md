@@ -1,2 +1,2 @@
-# composite-run-steps-action
-Common GitHub Actions run steps.
+# actions-pnpm-run-steps
+GitHub Actions run steps to setup `pnpm`.
