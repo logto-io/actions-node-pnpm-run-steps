@@ -4,8 +4,8 @@ runs:
   using: composite
   steps:
     - uses: actions/setup-node@v2
-        with:
-          node-version: '14'
+      with:
+        node-version: '14'
 
     # https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
     - name: Cache pnpm modules
