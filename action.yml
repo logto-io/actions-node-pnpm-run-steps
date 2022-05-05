@@ -9,7 +9,7 @@ inputs:
     default: 'https://registry.npmjs.org'
   pnpm-version:
     required: true
-    default: 6.0.2
+    default: 7.0.0
   run-install:
     required: true
     default: true
