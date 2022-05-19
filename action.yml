@@ -16,21 +16,15 @@ inputs:
 runs:
   using: composite
   steps:
+    - uses: pnpm/action-setup@v2.2.1
+      with:
+        version: ${{ inputs.pnpm-version }}
+
     - uses: actions/setup-node@v3
       with:
         node-version: ${{ inputs.node-version }}
         registry-url: ${{ inputs.registry-url }}
+        cache: 'pnpm'
 
-    # https://github.com/pnpm/action-setup#use-cache-to-reduce-installation-time
-    - name: Cache pnpm modules
-      uses: actions/cache@v3
-      with:
-        path: ~/.pnpm-store
-        key: ${{ runner.os }}-${{ hashFiles('**/pnpm-lock.yaml') }}
-        restore-keys: |
-          ${{ runner.os }}-
-
-    - uses: pnpm/action-setup@v2.2.1
-      with:
-        version: ${{ inputs.pnpm-version }}
-        run_install: ${{ inputs.run-install }}
+    - run: pnpm i
+      if: ${{ inputs.run-install }} == true
