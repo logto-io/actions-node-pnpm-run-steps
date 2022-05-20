@@ -27,4 +27,5 @@ runs:
         cache: 'pnpm'
 
     - run: pnpm i
+      shell: bash
       if: ${{ inputs.run-install }} == true
