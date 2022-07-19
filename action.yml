@@ -28,4 +28,4 @@ runs:
 
     - run: pnpm i
       shell: bash
-      if: ${{ inputs.run-install }} == true
+      if: ${{ inputs.run-install == 'true' }}
