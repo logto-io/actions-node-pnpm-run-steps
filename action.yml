@@ -3,7 +3,7 @@ name: Setup Node and pnpm
 inputs:
   node-version:
     required: true
-    default: 16
+    default: 18
   registry-url:
     required: true
     default: 'https://registry.npmjs.org'
